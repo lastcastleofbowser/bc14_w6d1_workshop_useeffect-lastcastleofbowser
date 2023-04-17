@@ -1,35 +1,34 @@
 import { useState, useEffect } from "react";
 
 function PokemonViewer({ id }) {
-  const [name, setName] = useState("")
-  const [weight, setWeight] =useState ("")
-  const [pokemonId, setPokemonId] =useState ("")
+  const [pokemon, setPokemon] = useState({});
+  const [idTwo, setIdTwo] = useState(1);
+ 
 
-  //TODO: Task 1 - send http request to `https://pokeapi.co/api/v2/pokemon/1' and display the data
-  useEffect (()=> {
-async function fetchPokemon(){
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon/1", {
-    headers: { accept: "application/json"},
-  });
-  const data = await res.json();
-  console.log(data);
-  setName(data.name)
-  setWeight(data.weight)
-  setPokemonId(data.id)
-}
-fetchPokemon();
-  }, []);
+useEffect (()=> {
+  async function fetchPokemon(){
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idTwo}`);
+    const data = await response.json();
+
+    setPokemon(data);
+  }
+  fetchPokemon();
+}, [idTwo]);
+
+function randomNumber() {
+  const random = Math.floor(Math.random() * 152);
+  setIdTwo(random);
+ }
+
+
+  return (
+     <div className="pokemon-viewer">
+  <h1>{pokemon.name}</h1>
+  <p>Pokemon ID: {pokemon.id}</p>
+  <button onClick={randomNumber}>Random Pokemon</button>
   
-  // TODO: Task 2 - send http request to `https://pokeapi.co/api/v2/pokemon/${id}` and display the data!
-  // HINT: you will need useState and useEffect!
-
-
-
-  return <div className="pokemon-viewer">
-  <p>Name: {name}</p>
-  <p>Weight: {weight}kg</p>
-  <p>Pokemon ID: {id}</p>
-  </div>;
+  </div>
+  );
 }
 
 export default PokemonViewer;
