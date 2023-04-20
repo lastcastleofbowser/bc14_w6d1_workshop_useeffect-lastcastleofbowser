@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       {/* TODO: Task 2 -  call handleClick when button clicked */}
-      <button>Get Random Pokemon</button>
+      {/* <button>Get Random Pokemon</button> */}
       {/* TODO: Task 2 -  hand down id as a prop */}
       <PokemonViewer />
     </div>
