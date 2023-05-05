@@ -35,3 +35,4 @@ New React docs:
 - [useEffect](https://beta.reactjs.org/apis/react/useEffect)
 
 [Old React docs - useEffect](https://reactjs.org/docs/hooks-effect.html)
+# bc14_w6d1_workshop_useeffect-lastcastleofbowser
