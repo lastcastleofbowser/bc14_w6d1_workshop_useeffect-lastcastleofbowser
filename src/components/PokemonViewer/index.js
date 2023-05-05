@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 // Define a new component called PokemonViewer that takes an "id" prop
 function PokemonViewer({ id }) {
 
-
+//.
   // Define two state variables: "pokemon" and "idTwo"
   const [pokemon, setPokemon] = useState({});
   const [idTwo, setIdTwo] = useState(1);
